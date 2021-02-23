@@ -2,8 +2,8 @@
 change HOST to your mqtt broker address.
 """
 HOST = "0.0.0.0"
-
-
+PORT = 1883
+USB_PORT = "/dev/ttyUSB0"
 
 
 import time
@@ -17,7 +17,7 @@ import serial
 import threading
 
 
-Serial = serial.Serial("/dev/ttyUSB0", 9600)
+Serial = serial.Serial(USB_PORT, 9600)
 
 DEVICE = {
     "name": "KlikAanKlikUit",
@@ -110,7 +110,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect(HOST, 1883, 60)
+client.connect(HOST, PORT, 60)
 # client.loop_start()
 
 try:
