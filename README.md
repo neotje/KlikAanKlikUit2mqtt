@@ -23,7 +23,7 @@ the purpose of the arduino is to send kaku signals to devices and recieve from d
 
 ### ubuntu autostart klikaanklikuit2mqtt.py
 1. Create service file `sudo nano /lib/systemd/system/kaku2mqtt.service
-2. add service information to the text file:
+2. add service information to the text file and replace "/path/to/klikaanklikuit2mqtt.py":
 ```
 [Unit]
 Description=klikaanklikuit2mqtt Service
@@ -38,3 +38,6 @@ StandardInput=tty-force
 [Install]
 WantedBy=multi-user.target
 ```
+3. reload systemctl daemon `sudo systemctl daemon-reload`
+4. enable service to autostart `sudo systemctl enable kaku2mqtt.service`
+5. start service with `sudo systemctl start kaku2mqtt.service`
