@@ -20,3 +20,21 @@ the purpose of the arduino is to send kaku signals to devices and recieve from d
 1. install python requirements `pip3 install -r requirements.txt`.
 2. change `HOST = "0.0.0.0"` to your mqtt brokers host.
 3. use `python3 klikaanklikuit2mqtt.py` to run the mqtt client.
+
+### ubuntu autostart klikaanklikuit2mqtt.py
+1. Create service file `sudo nano /lib/systemd/system/kaku2mqtt.service
+2. add service information to the text file:
+```
+[Unit]
+Description=klikaanklikuit2mqtt Service
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3.8 /path/to/klikaanklikuit2mqtt.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
+```
