@@ -139,8 +139,8 @@ def on_message(client, userdata, msg: mqtt.MQTTMessage):
 
     if id in devices and "state" in data:
         d = devices[id]
-        _LOGGER.info(f"Serial OUT: {d['A']} {d['U']} {data['S']}")
-        Serial.write(f"{d['A']} {d['U']} {data['S']}\n".encode())
+        _LOGGER.info(f"Serial OUT: {d['A']} {d['U']} {data['state']}")
+        Serial.write(f"{d['A']} {d['U']} {data['state']}\n".encode())
 
 
 client = mqtt.Client()
