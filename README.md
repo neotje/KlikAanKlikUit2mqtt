@@ -41,3 +41,5 @@ WantedBy=multi-user.target
 3. reload systemctl daemon `sudo systemctl daemon-reload`
 4. enable service to autostart `sudo systemctl enable kaku2mqtt.service`
 5. start service with `sudo systemctl start kaku2mqtt.service`
+
+sometimes it helps to run `sudo pip3 install -r requirements.txt` to install python packages for the root user.
